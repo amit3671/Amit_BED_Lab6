@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<title>Candidate Directory</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+		<div class="container-fluid">
+			<h4>User Management System</h4>
+			<h5 style="color: grey">&#160; &#160;Candidate Management</h5>
+			&#160;&#160;
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="button active"
+						style="color: black" aria-current="page" th:href="@{/logout}">
+							Logout </a></li>
+					<li class="nav-item">&#160;&#160; <a class="button active"
+						style="color: black" aria-current="page" th:href="@{/users}">
+							List Users </a></li>
+				</ul>
+			</div>
+		</div>
+
+	</nav>
+
+	<br />
+	<br />
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-md-8 offset-md-2 border">
+				<br /> <label><b> First Name </b></label>
+				<div th:text="${user.firstName}"></div>
+				<hr />
+				<label><b> Last Name </b></label>
+				<div th:text="${user.lastName}"></div>
+				<hr />
+				<label><b> Course </b></label>
+				<div th:utext="${user.course}"></div>
+				<hr />
+				<label><b> Country </b></label>
+				<div th:utext="${user.country}"></div>
+				<hr />
+				<label><b> Email </b></label>
+				<div th:utext="${user.email}"></div>
+				<hr />
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Candidate Management System</title>
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>Candidate Directory</title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+		<div class="container-fluid">
+			<h4 style="color: grey">Candidate Management System</h4>
+			&#160;&#160;&#160;
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item"><a class="button active"
+					style="color: black" aria-current="page" th:href="@{/logout}">
+						Logout </a></li>
+			</ul>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			</div>
+		</div>
+
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<h1>List of Users</h1>
+		</div>
+
+		<br />
+		<table class="table table-striped table-hover table-bordered">
+			<thead class="table-dark">
+				<tr>
+					<th style="width: 5%">#</th>
+					<th style="width: 5%">User Email</th>
+					<th style="width: 5%">User first name</th>
+					<th style="width: 5%">User last name</th>
+					<th style="width: 5%">User course</th>
+					<th style="width: 5%">User country</th>
+					<th style="width: 10%">Admin actions</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr th:each="users, usersStat : ${user}">
+					<td th:text="${usersStat.count}">1</td>
+					<td th:text="${users.email}">User Email</td>
+					<td th:text="${users.firstName}">User First Name</td>
+					<td th:text="${users.lastName}">User LastName</td>
+					<td th:text="${users.course}">User Course</td>
+					<td th:text="${users.country}">User Country</td>
+
+
+					<td><a th:href="@{/admin/users/{id}/edit(id = ${users.id})}"
+						class="btn btn-primary">Edit</a> <a
+						th:href="@{/admin/users/{userId}/delete(userId = ${users.id})}"
+						class="btn btn-danger">Delete</a> <a
+						th:href="@{/admin/users/viewUser/{id}(id = ${users.id})}"
+						class="btn btn-info">View</a></td>
+				</tr>
+
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
